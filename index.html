@@ -71,6 +71,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-secondBlog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/18/secondBlog/" class="article-date">
+  <time class="dt-published" datetime="2025-11-18T15:22:14.000Z" itemprop="datePublished">2025-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/11/18/secondBlog/">golang并发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="golang并发模型"><a href="#golang并发模型" class="headerlink" title="golang并发模型"></a>golang并发模型</h4><p>并发与并行：多个任务在同一时间段内交替执行（看起来同时），多个任务在同一时刻真正同时执行</p>
+<p>CSP理论：<strong>核心思想</strong>：”不要通过共享内存来通信，而应该通过通信来共享内存”，Process（进程&#x2F;协程） + Channel（通道）</p>
+<p>一个 Goroutine 会以一个很小的栈启动（可能是 2KB 或 4KB），当遇到深度递归导致当前栈空间不足时，Goroutine 会根据需要动态地伸缩栈的大小（主流实现中栈的最大值可达到1GB）。因为启动的代价很小，所以我们可以轻易地启动成千上万个 Goroutine。</p>
+<p>Goroutine 采用的是半抢占式的协作调度，只有在当前 Goroutine 发生阻塞时才会导致调度；同时发生在用户态，调度器会根据具体函数只保存必要的寄存器，切换的代价要比系统线程低得多。运行时有一个 <code>runtime.GOMAXPROCS</code> 变量，用于控制当前运行正常非阻塞 Goroutine 的系统线程数目。</p>
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
+<li><strong>高并发Web服务器</strong>：每个请求一个Goroutine</li>
+<li><strong>数据处理流水线</strong>：多个处理阶段并行执行</li>
+<li><strong>实时消息推送</strong>：WebSocket连接管理</li>
+<li><strong>定时任务调度</strong>：后台定时执行任务</li>
+<li><strong>并发爬虫</strong>：同时抓取多个网页</li>
+</ul>
+<p>一定要学会自己搜索，自己解决信息差，搜索技术。</p>
+<p>要学会儿自己构建项目，多敲代码，直至自己能够凭借自己构建</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/18/secondBlog/" data-id="cuidtgrIvCzDtGlrXk7mu-tFS" data-title="golang并发" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/template/" rel="tag">template</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-myFirstBlog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/11/18/myFirstBlog/" class="article-date">
@@ -107,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/18/myFirstBlog/" data-id="cuidkTSdcRTn0LvepzDtRLM3x" data-title="myFirstBlog" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/11/18/myFirstBlog/" data-id="cuidyBCWtyfmCByNwNxV1kq43" data-title="myFirstBlog" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -160,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/04/hello-world/" data-id="cuid0mugNxDx1vFzQwAOiwsTi" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/10/04/hello-world/" data-id="cuid-yAcIdbRACuzsnEMZAAvy" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -215,6 +268,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/11/18/secondBlog/">golang并发</a>
+          </li>
         
           <li>
             <a href="/2025/11/18/myFirstBlog/">myFirstBlog</a>
